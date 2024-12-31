@@ -6,12 +6,17 @@ body {
 }
 
 .container {
-    margin: 0 auto;
+    margin: auto;
+    margin-top: 50px;
     padding: 20px;
     max-width: 600px;
     background: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+}
+
+.form {
+    padding: 40px;
 }
 
 .form-group {

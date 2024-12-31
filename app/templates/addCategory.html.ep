@@ -1,1 +1,25 @@
-<h1>ASdSD</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Category</title>
+    <link rel="stylesheet" href="/css/addCategoryStyles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Add Category</h2>
+        <form action="/addCategory" method="POST" class="form">
+            <div class="form-group">
+                <label for="categoryName">Category Name:</label>
+                <input type="text" id="categoryName" name="categoryName" required>
+            </div>
+
+            <div class="form-buttons">
+                <button type="submit" class="save-btn">Save</button>
+                <button type="button" class="cancel-btn" onclick="window.location.href='/dashboard'">Cancel</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
