@@ -87,12 +87,14 @@
 
         <div class="resource-panel">
           <div class="button-group">
-            <button class="add-resource" id="addResourceBtn">
-              + Add Resource
-            </button>
-            <button class="add-Category" id="addCategoryBtn">
-              + Add Category
-            </button>
+            
+             <% if ($user_role eq "Admin") { %>
+              <button class="add-category" id="addCategoryBtn">+ Add Category</button>
+              <button class="add-resource" id="addResourceBtn">+ Add Resource</button>
+             <% } %>
+             <% if($user_role eq "Lecturer") { %>
+              <button class="add-resource" id="addResourceBtn">+ Add Resource</button>
+             <% } %>
           </div>
           <input type="text" class="search-resource" placeholder="Search..." />
         </div>

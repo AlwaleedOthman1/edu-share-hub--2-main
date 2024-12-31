@@ -49,6 +49,9 @@ get '/dashboard' => sub {
     } elsif ($description =~ /pensyarah\s*(\w+)/) {
         $role = "Lecturer";
         $faculty = uc($1); # Extract faculty code and convert to uppercase
+    } elsif ($description =~ /pensyarah/) {
+        $role = "Lecturer";
+        $faculty = "None";
     }
 
     # Fetch resource details
