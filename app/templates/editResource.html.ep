@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDU Share-Hub Form</title>
+    <link rel="stylesheet" href="/css/editResource.css">
+    <script src="/js/editResource.js" defer></script>
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="app-info">
+            <img src="/images/logo.png" alt="App Logo" class="app-logo">
+            <span class="app-name">EDU SHARE-HUB</span>
+        </div>
+        <div class="user-info">
+            <span class="role">Administrator</span>
+            <img src="/images/pfp.png" alt="Profile Icon" class="profile-icon">
+        </div>
+    </div>
+    <div class="container">
+        <div class="back-button">
+            <a href="#" onclick="history.back()" class="back-link">← Back</a>
+        </div>
+        <main>
+            <div class="head">
+                <img src="/images/document.png" alt="App Logo" class="app-logo">
+                <h1>SECJ3104-01</h1>
+            </div>
+            <form class="form" id="editResourceForm" method="POST" action="/updateResource/<%= $resource->{id} %>">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" value="<%= $resource->{name} %>">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description"><%= $resource->{description} %></textarea>
+    </div>
+    <div class="form-group">
+        <label for="category">Category</label>
+        <input type="text" id="category" name="category" value="<%= $resource->{category} %>">
+    </div>
+    <div class="form-group">
+        <label for="shared-with">Shared with who</label>
+        <select id="shared-with" name="shared-with">
+            <option value="everyone" <%= $resource->{shared_with} eq 'everyone' ? 'selected' : '' %>>Everyone</option>
+            <option value="specific" <%= $resource->{shared_with} eq 'specific' ? 'selected' : '' %>>Specific Users</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="session">Session/Semester</label>
+        <select id="session" name="session">
+            <option value="2023/2024-1" <%= $resource->{session} eq '2023/2024-1' ? 'selected' : '' %>>2023/2024-1</option>
+        </select>
+    </div>
+
+    <div class="button-container">
+        <div class="left-buttons">
+            <button type="submit" class="save-btn">Save</button>
+            <button type="button" class="cancel-btn" onclick="history.back()">Cancel</button>
+        </div>
+        <div class="right-buttons">
+            <!-- Delete Button -->
+            <button type="button" class="delete-btn" onclick="deleteResource(<%= $resource->{id} %>)">Delete</button>
+        </div>
+    </div>
+</form>
+
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+% layout 'default';
+<h1>Message Board</h1>
+
+<!-- Form for adding messages -->
+<form id="messageForm">
+  Name: <input type="text" id="name" required><br>
+  Message: <textarea id="message" required></textarea><br>
+  <button type="submit">Submit</button>
+</form>
+
+<!-- List of messages -->
+<h2>Messages</h2>
+<ul id="messages">
+% for my $msg (@$messages) {
+  <li><strong><%= $msg->{name} %>:</strong> <%= $msg->{message} %></li>
+% }
+</ul>
+
+<script src="/js/main.js"></script>

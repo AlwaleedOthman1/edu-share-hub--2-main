@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDU Share-Hub Form</title>
+    <link rel="stylesheet" href="/css/addResourceStyles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/js/addResourceLogic.js" defer></script>
+  </head>
+
+  <body>
+    <div class="top-bar">
+      <div class="app-info">
+        <img src="/images/utmLogo.png" alt="App Logo" class="app-logo" />
+        <span class="app-name">EDU SHARE-HUB</span>
+      </div>
+      <div class="user-info">
+        <span class="role">Administrator</span>
+        <img
+          src="/images/profile.png"
+          alt="Profile Icon"
+          class="profile-icon"
+        />
+      </div>
+    </div>
+    <div class="container">
+      <div class="back-button">
+        <a href="/dashboard" onclick="history.back()" class="back-link"
+          >← Back</a
+        >
+      </div>
+      <main>
+        <form
+          id="resourceForm"
+          method="POST"
+          action="/addResource"
+          class="form"
+        >
+          <div class="form-group">
+            <label for="owner">Owner</label>
+            <input
+              type="text"
+              id="owner"
+              name="owner"
+              value="<%= $user_email %>"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" value="" />
+          </div>
+          <div class="form-group">
+            <label for="resource-link">Resource Link</label>
+            <input
+              type="url"
+              id="resource-link"
+              name="resource-link"
+              value=""
+            />
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" name="category">
+              % foreach my $category (@$categories) {
+              <option value="<%= $category %>"><%= $category %></option>
+              % }
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="shared-with">Shared with who</label>
+            <select id="shared-with" name="shared-with">
+              <option value="everyone" selected>Everyone</option>
+              <option value="specific">Specific Users</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="session">Session/Semester</label>
+            <select id="session" name="session">
+              % foreach my $session (@$sessions) {
+              <option value="<%= $session %>"><%= $session %></option>
+              % }
+            </select>
+          </div>
+          <div class="form-buttons">
+            <button type="submit" class="add-btn">Add</button>
+            <button type="button" class="cancel-btn">Cancel</button>
+          </div>
+        </form>
+      </main>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </body>
+</html>

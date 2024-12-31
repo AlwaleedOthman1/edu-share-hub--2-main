@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb_container
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpassword
+    volumes:
+      - ./mariadb/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+
+  mojolicious_app:
+    build:
+      context: .
+    container_name: mojolicious_container
+    depends_on:
+      - mariadb
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./app:/app
+      - ./static:/app/public

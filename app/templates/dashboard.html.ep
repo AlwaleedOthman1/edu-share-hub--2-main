@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edu Share-Hub</title>
+    <link rel="stylesheet" href="/css/dashboardStyles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/js/dashboardLogic.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="app-info">
+        <img src="/images/utmLogo.png" alt="App Logo" class="app-logo" />
+        <span class="app-name">EDU Share-hub</span>
+      </div>
+      <div class="user-info">
+        <!-- Display user's name and role -->
+        <span class="role"><%= $user_role %></span>
+        <img
+          src="/images/profile.png"
+          alt="Profile Icon"
+          class="profile-icon"
+        />
+      </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+      <!--
+        <div class="sidebar">
+            <input type="text" class="search" placeholder="Search...">
+            <ul class="menu">
+                <li>Course Files</li>
+                <li>PSM 1</li>
+                <li>Internship</li>
+                <li>Timetable</li>
+                <li>Training/Workshop</li>
+                <li>Meeting</li>
+            </ul>
+        </div>
+        -->
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <input type="text" class="search" placeholder="Search..." />
+        <ul class="menu">
+          <li>All</li>
+          <!-- Default option -->
+          % foreach my $category (@$categories) {
+          <li><%= $category %></li>
+          % }
+        </ul>
+      </div>
+
+      <!-- Content Area -->
+      <div class="content-area">
+        <div class="user-profile">
+          <h1 class="user-name"><%= $user_name %></h1>
+          <h2 class="user-role">
+            <%= $user_role %> - Faculty: <%= $faculty %>
+          </h2>
+        </div>
+        <div class="selected-sidebar-item" id="selectedSidebarItem">
+          Course Files
+        </div>
+        <div class="header">
+          <span class="sem-selector"
+            >Sem:
+            <select id="sessionFilter">
+              % foreach my $session (@$sessions) {
+              <option value="<%= $session %>"><%= $session %></option>
+              % }
+            </select>
+          </span>
+
+          <span class="shared-toggle">
+            <input type="checkbox" id="sharedByMe" />
+            <label for="sharedByMe">Shared by me</label>
+          </span>
+        </div>
+
+        <div class="resource-panel">
+          <div class="button-group">
+            <button class="add-resource" id="addResourceBtn">
+              + Add Resource
+            </button>
+            <button class="add-Category" id="addCategoryBtn">
+              + Add Category
+            </button>
+          </div>
+          <input type="text" class="search-resource" placeholder="Search..." />
+        </div>
+
+        <!-- Display list of resources -->
+        <div class="file-list">
+          % foreach my $resource (@$resources) {
+          <div class="file-item">
+            <div class="file-info">
+              <span class="file-code"> <%= $resource->{name} %> </span>
+              <span class="file-desc"> <%= $resource->{description} %> </span>
+              <div class="file-meta">
+                <span class="file-owner"
+                  >Category: <%= $resource->{category} %></span
+                >
+                <span class="file-semester"
+                  >Session: <%= $resource->{session} %></span
+                >
+              </div>
+            </div>
+            <div class="actions">
+              <!-- View Button: Redirects to the resource link -->
+              <a
+                href="<%= $resource->{resource_link} // '#' %>"
+                class="view-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View</a
+              >
+              <!-- Edit Button: Redirects to an edit page for the specific resource -->
+              <a href="/editResource/<%= $resource->{id} %>" class="edit-btn"
+                >Edit</a
+              >
+            </div>
+          </div>
+          % }
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

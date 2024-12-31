@@ -1,0 +1,5 @@
+% layout 'default';
+% title 'New Landing Page';
+
+<h1>Welcome to the New Landing Page!</h1>
+<p>This is a custom landing page for your web application.</p>

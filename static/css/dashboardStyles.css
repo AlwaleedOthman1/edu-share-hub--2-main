@@ -1,0 +1,325 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Epilogue", sans-serif;
+}
+
+/* Top Bar */
+/* Top Bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  color: black;
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  height: 60px;
+  z-index: 10;
+  border-bottom: 2px solid #d47575;
+  /* Separator line */
+}
+
+/* App Info (Logo and Name) */
+.app-info {
+  display: flex;
+  align-items: center;
+}
+
+.app-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.app-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* User Info (Role and Profile Icon) */
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.role {
+  margin-right: 55px;
+  font-size: 16px;
+}
+
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 25px;
+}
+
+/* Main Layout */
+.main-layout {
+  display: flex;
+  margin-top: 60px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #b04e4e;
+  height: calc(100vh - 60px);
+  padding: 20px;
+  color: white;
+}
+
+.search {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu li {
+  padding: 10px;
+  background-color: #8d0819;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.menu li:hover {
+  background-color: #800919;
+}
+
+/* Content Area */
+.content-area {
+  flex: 1;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sem-selector select {
+  padding: 5px;
+}
+
+.shared-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.shared-toggle input {
+  margin-right: 5px;
+}
+
+.resource-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Align elements to the left and right */
+  margin-bottom: 15px;
+}
+
+/*
+
+.add-resource {
+  padding: 10px 20px;
+  background-color: #b04e4e;
+  text-decoration: none;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-resource:hover {
+  background-color: #d47575;
+}
+
+*/
+
+.add-resource,
+.add-category {
+  padding: 10px 20px;
+  background-color: #b04e4e;
+  text-decoration: none;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-resource:hover,
+.add-category:hover {
+  background-color: #d47575;
+}
+
+.search-resource {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-left: 10px;
+}
+
+.file-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* Adjust alignment for multi-line content */
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.file-info {
+  width: 75%;
+  /* Adjust width for content and metadata */
+}
+
+.file-code {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.file-desc {
+  display: block;
+  margin: 10px 0;
+  color: #555;
+}
+
+.file-meta {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  color: #777;
+  margin-top: 5px;
+}
+
+.file-meta span {
+  display: inline-block;
+}
+
+.actions button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.view-btn {
+  background-color: #4caf50;
+  color: white;
+  align-items: center;
+}
+
+.view-btn:hover {
+  background-color: #45a049;
+}
+
+.edit-btn {
+  background-color: #f0ad4e;
+  color: white;
+  margin-left: 10px;
+  align-items: center;
+}
+
+.edit-btn:hover {
+  background-color: #ec971f;
+}
+
+/* Selected Sidebar Item */
+.selected-sidebar-item {
+  font-size: 24px;
+  font-weight: 700;
+  /* Bold */
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Actions (View/Edit Buttons) */
+.actions a {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  /* Remove underline */
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.actions {
+  display: flex;
+  /* Set flexbox */
+  align-items: center;
+  /* Center items vertically */
+  gap: 10px;
+  margin-top: 20px;
+  /* Add space between buttons */
+}
+
+.menu li.active {
+  font-weight: bold;
+  color: #007bff;
+  /* Highlight color */
+}
+
+.search-resource,
+.sem-selector select {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin: 0 10px;
+}
+
+.shared-toggle label {
+  cursor: pointer;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  /* Add spacing between buttons */
+}
+
+/* User Profile Section */
+.user-profile {
+  padding: 15px;
+  background-color: #f8f9fa; /* Light background */
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px; /* Add spacing below */
+  text-align: center; /* Center-align the text */
+}
+
+.user-name {
+  font-size: 1.8em;
+  font-weight: 700;
+  margin: 0;
+  color: #333; /* Dark text color */
+}
+
+.user-role {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #666; /* Gray text for role */
+  margin-top: 5px;
+}
